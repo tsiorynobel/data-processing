@@ -1,0 +1,9 @@
+export const ERROR_PARAMS = "Les paramètres 'symbol', 'startTime' et 'endTime' sont requis.";
+export const ERROR_TRADES = "Pas assez de trades pour calculer la rentabilité.";
+export const ERROR_PRICE = "Les prix initiaux ou finaux ne sont pas des nombres.";
+export const ERROR_FILTER = "Erreur lors du filtrage.";
+export const ERROR_DATA = "Les données reçues ne sont pas un tableau.";
+export const ERROR_SERVER = "Erreur serveur : 500";
+export const ERROR_ENOUGTH = "Erreur PAS ASSEZ DE TRADES";
+export const BXBT = '.BXBT';
+export const PARAM = 'PARAMETRES :';

@@ -1,7 +1,8 @@
 import app from './app.js';
 
-const port = process.env.port || 3000;
+const port = process.env.PORT;
 
 app.listen(port,()=>{
-console.log('Server tourne');
+console.log('Server tourne',port);
 });
+

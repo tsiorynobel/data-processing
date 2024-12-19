@@ -1,35 +1,39 @@
-import api from '../config/api.js';
+import sequelize from "../config/database.js";
+import { DataTypes } from "sequelize";
 
-export const getAll = async ()=>{ 
-    const res = await api.get('/');
-    return res.data;
-}
 
-export const filterTrades = async (symbol,startTime,endTime) =>{ 
-    try {
-        const res = await api.get("/");
-        const trades = res.data;
-      
-        if (!Array.isArray(trades)) {
-          throw new Error("Les données reçues ne sont pas un tableau.");
-        }
+const Trade = sequelize.define("Trade", {
 
-        const filteredBySymbol = trades.filter(trade => trade.symbol === symbol);
-      
-        const filteredByStartTime = filteredBySymbol.filter(trade =>
-          trade.timestamp && new Date(trade.timestamp) >= new Date(startTime)
-        );
-      
-        const finalFilteredTrades = filteredByStartTime.filter(trade =>
-          new Date(trade.timestamp) <= new Date(endTime)
-        );
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    timestamp: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    symbol: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    side: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    size: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    price: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+  }, {
+    tableName: "trades",
+    timestamps: false,
 
-      
-      
-        return finalFilteredTrades;
-      } catch (error) {
-        console.error("Erreur lors du filtrage here :", error.message);
-        throw error;
-      }
-
-}
+  });
+  
+  export default Trade;
