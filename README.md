@@ -16,8 +16,16 @@ Le projet expose deux endpoints principaux :
 Avant de commencer, assurez-vous que vous avez installé les éléments suivants :
 - **Node.js** (version 22.12.0)
 - **npm** (gestionnaire de paquets Node.js)
+- Modules : `express`, `axios`
+- Une connexion Internet.
+- Un éditeur de code (VS Code, PyCharm, etc.).
+- Postman (ou un équivalent) installé.
 
 ## Installation
 
 1. Clonez ce dépôt sur votre machine locale :
    git clone git@github.com:tsiorynobel/dataProcessingBackEnd.git
+   cd dataProcessingBackEnd
+   node server.js
+
+
