@@ -20,7 +20,7 @@ export const calculateProfitabity = async (req , res) => {
           return res.status(400).json({ message: "Les paramètres 'symbol', 'startTime' et 'endTime' sont requis." });
         }
     
-        console.log("📌 Paramètres reçus :", { symbol, startTime, endTime });
+        console.log("Paramètres reçus :", { symbol, startTime, endTime });
     
         const filteredTrades = await filterTrades(symbol, startTime, endTime);
     
@@ -51,7 +51,7 @@ export const calculateProfitabity = async (req , res) => {
     
         const profitability = ((finalPrice - initialPrice) / initialPrice) * 100;
     
-        console.log(`Calcul de la rentabilité : (( ${finalPrice} - ${initialPrice} ) / ${initialPrice} ) * 100`);
+        console.log(`Calcul de la rentabilité : (( ${finalPrice} - ${initialPrice} ) / ${initialPrice} ) * 100:${profitability}`);
     
         return res.status(200).json({
           symbol,
