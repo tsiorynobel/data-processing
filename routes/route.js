@@ -1,9 +1,9 @@
 import express from 'express';
-import { getAllTrades,calculateProfitabity } from '../controllers/tradeController.js';
+import TradeController from '../controllers/tradeController.js';
 
 const route = express.Router();
 
-route.get('/', getAllTrades);
-route.get('/calculate',calculateProfitabity);
+route.get('/', TradeController.getAllTrades);
+route.get('/calculate',TradeController.calculateProfitability);
 
 export default route;
