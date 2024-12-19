@@ -28,7 +28,7 @@ export const filterTrades = async (symbol,startTime,endTime) =>{
       
         return finalFilteredTrades;
       } catch (error) {
-        console.error("Erreur lors du filtrage :", error.message);
+        console.error("Erreur lors du filtrage here :", error.message);
         throw error;
       }
 
