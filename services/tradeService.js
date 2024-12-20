@@ -3,6 +3,7 @@ import axios from "axios";
 import { ERROR_PARAMS, ERROR_TRADES, ERROR_PRICE,ERROR_FILTER, ERROR_DATA, BXBT } from "../utils/constante.js";
 
 
+
 class TradeService {
 
     static async getAllTradesService() {
@@ -77,6 +78,8 @@ class TradeService {
             throw new Error(ERROR_PRICE);
         }
 
+
+
         const profitability = ((finalPrice - initialPrice) / initialPrice) * 100;
 
         return {
@@ -89,8 +92,36 @@ class TradeService {
         };
     }
 
-    static async getStatService() {
+    static async  getMedianService() {
+      const trades = await this.getAllTradesService();
+      if (!trades || trades.length === 0) {
+        return null;
+      }
+    
+      const prices = trades.map((trade) => trade.price);
+      if (!prices || prices.length === 0) {
+        return null;
+      }
+    
+      const median = await this.calculateMedian(prices);
+      return median ? median.toFixed(2) : null;
+    }
+    
 
+  static async calculateMedian(values) {
+    if (!values || values.length === 0) return null; 
+    values.sort((a, b) => a - b);
+  
+    const middle = Math.floor(values.length / 2);
+    if (values.length % 2 !== 0) {
+      return values[middle];
+    }
+    return (values[middle - 1] + values[middle]) / 2;
+  }
+  
+
+    static async getStatService() {
+      
         const trades = await this.getAllTradesService();
         const prices = trades.map(trade => trade.price);
         const maxPrice = Math.max(...prices);
@@ -103,18 +134,24 @@ class TradeService {
         const startDate = trades[0]?.timestamp;
         const endDate = trades[trades.length - 1]?.timestamp;
 
+        let median = null;
+        try {
+          median = await this.getMedianService();
+        } catch (error) {
+          console.error(ERROR_DATA, error);
+        }
+
         return {
-            max: maxPrice.toFixed(2),
-            maxDate: maxPriceTrade.timestamp,
-            min: minPrice.toFixed(2),
-            minDate: minPriceTrade.timestamp,
-            avg: avgPrice,
-            startDate,
-            endDate,
+          max: maxPrice.toFixed(2),
+          maxDate: maxPriceTrade?.timestamp || null,
+          min: minPrice.toFixed(2),
+          minDate: minPriceTrade?.timestamp || null,
+          median: median || null,
+          avg: avgPrice,
+          startDate,
+          endDate,      
         };
     }
-
-
 
 }
 

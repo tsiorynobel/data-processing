@@ -29,6 +29,4 @@ Avant de commencer, assurez-vous que vous avez installé les éléments suivants
  -  cd dataProcessingBackEnd
  -  Lancez la commande : npm install
  -  Pour demarer le server: node server.js
- -  Installation de SQLITE: npm install sequelize sqlite3 dotenv
-
-
+ -  Installation de SQLITE: npm install sequelize sqlite3 dotenv 
