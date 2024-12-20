@@ -30,5 +30,6 @@ Avant de commencer, assurez-vous que vous avez installé les éléments suivants
  -  Lancez la commande : npm install
  -  Pour demarer le server: node server.js
  -  Installation de SQLITE: npm install sequelize sqlite3 dotenv
+ - Installer cors pour l'api extérieur : npm install cors
 
 
