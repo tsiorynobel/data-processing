@@ -6,6 +6,7 @@
 Le projet expose deux endpoints principaux :
 1. Un endpoint pour récupérer toutes les transactions.
 2. Un endpoint pour calculer la rentabilité entre un prix initial et un prix final sur une période définie.
+3. Un endpoint pour calculer la moyenne, médianne, maximum, minimum sur une période définie.
 
 ## Fonctionnalités
 - **Récupération de tous les trades** : Permet d'obtenir toutes les transactions de trade depuis l'API Bitmex.
