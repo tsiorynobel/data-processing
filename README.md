@@ -1,35 +1,70 @@
-# DATA PROCESSINGBACKEND
+# DATA PROCESSING BACKEND
 
 ## Description
-**DATA PROCESSINGBACKEND** est une API backend construite avec **Express.js** qui permet de récupérer des données de transactions financières depuis l'API de Bitmex, de filtrer ces données en fonction de critères spécifiques (symbole, dates), et de calculer la rentabilité des transactions.
 
-Le projet expose deux endpoints principaux :
-1. Un endpoint pour récupérer toutes les transactions.
-2. Un endpoint pour calculer la rentabilité entre un prix initial et un prix final sur une période définie.
-3. Un endpoint pour calculer la moyenne, médianne, maximum, minimum sur une période définie.
+**DATA PROCESSING BACKEND** est une API backend construite avec **Express.js**. Elle permet de :
+- Récupérer des données de transactions financières depuis l'API de **Bitmex**.
+- Filtrer ces données selon des critères spécifiques (symbole, dates).
+- Calculer des statistiques et la rentabilité des transactions.
+
+### Endpoints principaux :
+1. **Récupération des transactions** : Obtenez toutes les transactions de trade depuis l'API Bitmex.
+2. **Calcul de rentabilité** : Calculez la rentabilité entre un prix initial et un prix final sur une période définie.
+3. **Statistiques des transactions** : Calculez la moyenne, la médiane, le maximum et le minimum sur une période définie.
+
+---
 
 ## Fonctionnalités
-- **Récupération de tous les trades** : Permet d'obtenir toutes les transactions de trade depuis l'API Bitmex.
-- **Filtrage des trades** : Permet de filtrer les transactions selon le symbole et la période (startTime et endTime).
-- **Calcul de rentabilité** : Calcule la rentabilité d'un actif financier entre un prix initial et un prix final.
+
+- **Récupération des trades** : Obtenez toutes les transactions disponibles via l'API Bitmex.
+- **Filtrage des données** : Filtrez les transactions par symbole et par période (startTime et endTime).
+- **Calcul de rentabilité** : Calculez la rentabilité d'un actif financier entre deux prix définis.
+- **Statistiques avancées** : Obtenez des métriques comme la moyenne, la médiane, le maximum et le minimum des transactions.
+
+---
 
 ## Prérequis
-Avant de commencer, assurez-vous que vous avez installé les éléments suivants :
-- **Node.js** (version 22.12.0)
-- **npm** (gestionnaire de paquets Node.js)
-- **BDD:SQLITE** (version 3)
-- Modules : `express`, `axios`
-- Une connexion Internet.
-- Un éditeur de code (VS Code, PyCharm, etc.).
-- Postman (ou un équivalent) installé.
 
+Avant de commencer, assurez-vous que vous avez installé ou configuré les éléments suivants :
+
+- **Node.js** (version 22.12.0 ou supérieure)
+- **npm** (gestionnaire de paquets Node.js)
+- **SQLite** (version 3)
+- Modules requis : `express`, `axios`, `sequelize`, `sqlite3`, `dotenv`
+- Une connexion Internet stable
+- Un éditeur de code (par exemple, VS Code ou PyCharm)
+- **Postman** (ou un outil équivalent) pour tester les endpoints API
+
+---
 
 ## Installation
+
 1. Clonez ce dépôt sur votre machine locale :
- -  git clone git@github.com:tsiorynobel/dataProcessingBackEnd.git  
- -  cd dataProcessingBackEnd
- -  Lancez la commande : npm install
- -  Pour demarer le server: node server.js
- -  Installation de SQLITE: npm install sequelize sqlite3 dotenv
+   ```bash
+   git clone git@github.com:tsiorynobel/dataProcessingBackEnd.git
+   cd dataProcessingBackEnd
+   ```
 
+2. Installez les dépendances nécessaires :
+   ```bash
+   npm install
+   ```
 
+3. Configurez la base de données SQLite :
+   ```bash
+   npm install sequelize sqlite3 dotenv
+   ```
+
+4. Lancez le serveur backend :
+   ```bash
+   node server.js
+   ```
+
+---
+
+## Notes supplémentaires
+
+- Testez les endpoints avec **Postman** ou un outil similaire pour valider leur bon fonctionnement.
+- Assurez-vous que votre base de données SQLite est correctement configurée avant de lancer le serveur.
+
+---
